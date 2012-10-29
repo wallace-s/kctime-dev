@@ -7,8 +7,7 @@
 
 {% if errormsg %}
 <p>{{errormsg}}</p>
-
-{% else %}
+{% endif %}
 
 <form method="post" action="."  data-ajax="false">
 	{% csrf_token %}
@@ -18,6 +17,5 @@
 	<input type="submit" value="送信" />
 </form>
 
-{% endif %}
 
 {% endblock %}

@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^timesheet/$', 'timesheetapp.views.index'),
 	url(r'^login/$', 'django.contrib.auth.views.login'),
-	url(r'^register/$', 'kcuser.views.register'),
+	url(r'^register/$', 'timesheetapp.views.register'),
 	url(r'^logout/$', 'timesheetapp.views.logout_view'),
+	url(r'^success/$', 'timesheetapp.views.sucess'),
 )
