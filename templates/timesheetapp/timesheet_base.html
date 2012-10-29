@@ -1,0 +1,12 @@
+﻿{% extends "base.html" %}
+
+
+{# At the top of all timesheets it should dislpay the current user's login name #}
+{% block content %}
+<h2>Logged in as {{ user.username }}</h2>
+
+	{% block content2 %}
+	{% endblock %}
+
+
+{% endblock %}

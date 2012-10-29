@@ -1,0 +1,33 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+
+{%if form.errors %}
+<p>You're username and password didn't match! Please try again.</p>
+{% endif %}
+
+
+        <form method="post" action="."  data-ajax="false">
+		{% csrf_token %}
+            <p>
+                <label for="id_username">Username:</label>
+                {{ form.username }}
+            </p>
+            <p>
+                <label for="id_password">Password:</label>
+                {{ form.password }}
+            </p>
+            {% if next %}
+                <input type="hidden" name="next" value="{{ next }}" />
+            {% else %}
+                <input type="hidden" name="next" value="/timesheet/" />
+            {% endif %}
+            <input type="submit" value="login" />
+        </form>
+
+
+<a href="/register/" data-rel="dialog" data-role="button" data-transition="slidedown">新しいアカウントを作成</a>
+
+
+
+{% endblock %}

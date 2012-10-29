@@ -1,0 +1,14 @@
+﻿{% extends "timesheetapp/timesheet_base.html" %}
+
+
+
+{% block content2 %}
+<h2>Welcome {{ user.username }}</h2>
+
+    <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+	
+	
+
+<a href="/logout/" data-role="button" data-transition="pop">ログアウト</a>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Registration Site test{% endblock %}
+
+
+{% block content %}
+
+{% if errormsg %}
+<p>{{errormsg}}</p>
+
+{% else %}
+
+<form method="post" action="."  data-ajax="false">
+	{% csrf_token %}
+	<table>
+	{{ userform.as_table }}
+	</table>
+	<input type="submit" value="送信" />
+</form>
+
+{% endif %}
+
+{% endblock %}
