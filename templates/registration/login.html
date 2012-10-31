@@ -7,12 +7,31 @@
 {% endif %}
 
 
+{% comment %}
+
+change the text box to a drop down menu
+
+<div data-role="fieldcontain">
+   <label for="id_username" class="select">Username:</label>
+   <select name="select-choice-1" id="select-choice-1">
+      {% for user in users %}
+      <option value="{{ user }}">{{ user }}</option>
+   </select>
+</div>
+
+{% endcomment %}
+
+
         <form method="post" action="."  data-ajax="false">
-		{% csrf_token %}
-            <p>
-                <label for="id_username">Username:</label>
-                {{ form.username }}
-            </p>
+        {% csrf_token %}
+        <div data-role="fieldcontain">
+           <label for="id_username" class="select">Username:</label>
+           <select name="select-choice-1" id="select-choice-1">
+              {% for user in users %}
+              <option value="{{ user }}">{{ user }}</option>
+			  {% endfor %}
+           </select>
+        </div>
             <p>
                 <label for="id_password">Password:</label>
                 {{ form.password }}
