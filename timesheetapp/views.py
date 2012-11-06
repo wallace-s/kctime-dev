@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.template import RequestContext 
 from timesheetapp.models import Timesheet
 from django.contrib.auth import logout
+from django.contrib.auth import login as django_login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -27,9 +28,11 @@ def register(request):
         userform = UserCreationForm()
         return render_to_response('timesheetapp/register.html', {"userform":userform},context_instance=RequestContext(request))
 
-def login(request):
-    users = User.objects.all()
-    return render_to_response('timesheetapp/login.html', {"users":users})
+# def login(request):
+    # users = User.objects.all()
+    # django_login(request)
+    
+    #return render_to_response('registration/login.html', {"users":users})
     
 def sucess(request):
     return render_to_response('timesheetapp/success.html', {"user":request.user})

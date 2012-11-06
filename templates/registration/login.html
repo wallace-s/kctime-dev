@@ -2,24 +2,12 @@
 
 {% block content %}
 
+{% comment	 %}
+
 {%if form.errors %}
 <p>You're username and password didn't match! Please try again.</p>
 {% endif %}
 
-
-{% comment %}
-
-change the text box to a drop down menu
-
-<div data-role="fieldcontain">
-   <label for="id_username" class="select">Username:</label>
-   <select name="select-choice-1" id="select-choice-1">
-      {% for user in users %}
-      <option value="{{ user }}">{{ user }}</option>
-   </select>
-</div>
-
-{% endcomment %}
 
 
         <form method="post" action="."  data-ajax="false">
@@ -28,10 +16,12 @@ change the text box to a drop down menu
            <label for="id_username" class="select">Username:</label>
            <select name="select-choice-1" id="select-choice-1">
               {% for user in users %}
-              <option value="{{ user }}">{{ user }}</option>
+              <option value="{{ user.username }}">{{ user.username }}</option>
 			  {% endfor %}
            </select>
         </div>
+		
+	
             <p>
                 <label for="id_password">Password:</label>
                 {{ form.password }}
@@ -43,9 +33,17 @@ change the text box to a drop down menu
             {% endif %}
             <input type="submit" value="login" />
         </form>
+		
+
 
 
 <a href="/register/" data-role="button" data-transition="slidedown">新しいアカウントを作成</a>
+
+{% endcomment %}
+
+{% for user in users %}
+<p>{{ user.username }}</p>
+{% endfor %}
 
 
 
