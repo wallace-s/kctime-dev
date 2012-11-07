@@ -18,4 +18,5 @@ urlpatterns = patterns('',
 	url(r'^register/$', 'timesheetapp.views.register'),
 	url(r'^logout/$', 'timesheetapp.views.logout_view'),
 	url(r'^success/$', 'timesheetapp.views.sucess'),
+	url(r'^edit_user/$', 'timesheetapp.views.edit_user'),
 )

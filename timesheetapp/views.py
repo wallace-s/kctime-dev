@@ -23,6 +23,13 @@ from django.contrib.sites.models import get_current_site
 @login_required
 def index(request):
     return render_to_response('timesheetapp/index.html', {}, context_instance=RequestContext(request))
+    
+@login_required
+def edit_user(request):
+    if request.method == "POST":
+        pass
+    else:
+        return render_to_response('timesheetapp/edit_user.html', {}, context_instance=RequestContext(request))
 
 def logout_view(request):
     logout(request)
