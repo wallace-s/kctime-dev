@@ -1,11 +1,7 @@
 ﻿from django.conf.urls import patterns, include, url
-from django.contrib.auth.models import User
 
 from django.contrib import admin
 admin.autodiscover()
-
-users = User.objects.all()
-
 
 urlpatterns = patterns('',
     # Examples:
@@ -18,7 +14,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^timesheet/$', 'timesheetapp.views.index'),
-	url(r'^login/$', 'django.contrib.auth.views.login',extra_context={'users':users}),
+	url(r'^login/$', 'timesheetapp.views.login'),
 	url(r'^register/$', 'timesheetapp.views.register'),
 	url(r'^logout/$', 'timesheetapp.views.logout_view'),
 	url(r'^success/$', 'timesheetapp.views.sucess'),

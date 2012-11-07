@@ -2,49 +2,36 @@
 
 {% block content %}
 
-{% comment	 %}
+
 
 {%if form.errors %}
 <p>You're username and password didn't match! Please try again.</p>
 {% endif %}
 
 
-
-        <form method="post" action="."  data-ajax="false">
-        {% csrf_token %}
-        <div data-role="fieldcontain">
-           <label for="id_username" class="select">Username:</label>
-           <select name="select-choice-1" id="select-choice-1">
-              {% for user in users %}
-              <option value="{{ user.username }}">{{ user.username }}</option>
-			  {% endfor %}
-           </select>
-        </div>
-		
+	<form method="post" action="."  data-ajax="false">
+	{% csrf_token %}
+	<div data-role="fieldcontain">
+	<label for="select-choice-0" class="select">Username:</label>
+	<select name="username" id="username">
+	   {% for user in users %}
+	   <option value="{{ user.username }}">{{ user.username }}</option>
+	   {% endfor %}
+	</select>
 	
-            <p>
-                <label for="id_password">Password:</label>
-                {{ form.password }}
-            </p>
-            {% if next %}
-                <input type="hidden" name="next" value="{{ next }}" />
-            {% else %}
-                <input type="hidden" name="next" value="/timesheet/" />
-            {% endif %}
-            <input type="submit" value="login" />
-        </form>
-		
+	<div data-role="fieldcontain">
+		<label for="id_password">Password:</label>
+		<input type="password" value="" id="password" name="password" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" phnomarkers="true">
+	</div>
+	{% if next %}
+		<input type="hidden" name="next" value="{{ next }}" />
+	{% else %}
+		<input type="hidden" name="next" value="/timesheet/" />
+	{% endif %}
+	<input type="submit" value="login" />
 
-
-
-<a href="/register/" data-role="button" data-transition="slidedown">新しいアカウントを作成</a>
-
-{% endcomment %}
-
-{% for user in users %}
-<p>{{ user.username }}</p>
-{% endfor %}
-
-
+	</form>
+	
+	<a href="/register/" data-role="button" data-transition="slidedown">新しいアカウントを作成</a>
 
 {% endblock %}
